@@ -607,6 +607,9 @@ namespace AutoTorrentInspection.Forms
             {
                 var row = new DataGridViewRow();
                 row.Cells.AddRange(new DataGridViewTextBoxCell {Value = folder});
+                row.Cells.AddRange(new DataGridViewTextBoxCell { Value = "" });
+                row.Cells.AddRange(new DataGridViewTextBoxCell { Value = "" });
+                row.Cells.AddRange(new DataGridViewTextBoxCell { Value = "CD 文件夹命名与规则不符" });
                 row.DefaultCellStyle.BackColor = INVALID_CD_FOLDER;
                 return row;
             }

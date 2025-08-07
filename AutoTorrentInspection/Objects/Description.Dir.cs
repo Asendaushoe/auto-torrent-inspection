@@ -60,6 +60,9 @@ namespace AutoTorrentInspection.Objects
         {
             var row = new DataGridViewRow();
             row.Cells.AddRange(new DataGridViewTextBoxCell {Value = DirName});
+            row.Cells.AddRange(new DataGridViewTextBoxCell { Value = "" });
+            row.Cells.AddRange(new DataGridViewTextBoxCell { Value = "" });
+            row.Cells.AddRange(new DataGridViewTextBoxCell { Value = FileDescription.StateMessage[State] });
             row.DefaultCellStyle.BackColor = FileDescription.StateColor[State];
             return row;
         }
@@ -95,6 +98,9 @@ namespace AutoTorrentInspection.Objects
         {
             var row = new DataGridViewRow();
             row.Cells.AddRange(new DataGridViewTextBoxCell {Value = DirName});
+            row.Cells.AddRange(new DataGridViewTextBoxCell { Value = "" });
+            row.Cells.AddRange(new DataGridViewTextBoxCell { Value = "" });
+            row.Cells.AddRange(new DataGridViewTextBoxCell { Value = FileDescription.StateMessage[State] });
             row.DefaultCellStyle.BackColor = FileDescription.StateColor[State];
             return row;
         }
@@ -130,6 +136,9 @@ namespace AutoTorrentInspection.Objects
         {
             var row = new DataGridViewRow();
             row.Cells.AddRange(new DataGridViewTextBoxCell {Value = DirName});
+            row.Cells.AddRange(new DataGridViewTextBoxCell { Value = "" });
+            row.Cells.AddRange(new DataGridViewTextBoxCell { Value = "" });
+            row.Cells.AddRange(new DataGridViewTextBoxCell { Value = FileDescription.StateMessage[State] });
             row.DefaultCellStyle.BackColor = FileDescription.StateColor[State];
             return row;
         }

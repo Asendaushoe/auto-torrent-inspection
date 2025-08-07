@@ -72,6 +72,23 @@ namespace AutoTorrentInspection.Objects
         protected static readonly Color INVALID_FILE_NAME_CHAR = Color.FromArgb(int.Parse(GlobalConfiguration.Instance().RowColor.INVALID_FILE_NAME_CHAR, System.Globalization.NumberStyles.HexNumber));
         protected static readonly Color EMPTY_FILE = Color.FromArgb(int.Parse(GlobalConfiguration.Instance().RowColor.EMPTY_FILE, System.Globalization.NumberStyles.HexNumber));
 
+        public static readonly Dictionary<FileState, string> StateMessage = new Dictionary<FileState, string>
+        {
+            [FileState.ValidFile] = "状态正常",
+            [FileState.InValidPathLength] = "过长的路径名",
+            [FileState.InValidFile] = "不符合命名规则或后缀的文件",
+            [FileState.InValidDir] = "目录命名有误",
+            [FileState.InValidCue] = "CUE 与文件不匹配",
+            [FileState.InValidEncode] = "非 UTF-8 编码的 CUE",
+            [FileState.InValidFlacLevel] = "无压缩的 FLAC",
+            [FileState.NonUTF8WBOM] = "无 BOM 的 UTF-8",
+            [FileState.InValidFileSignature] = "后缀名与文件头不符",
+            [FileState.TamperedLog] = "LOG 与签名不符",
+            [FileState.InValidFileNameCharacter] = "存在合并字符",
+            [FileState.EmptyFile] = "文件为空",
+
+        };
+
         public static readonly Dictionary<FileState, Color> StateColor = new Dictionary<FileState, Color>
         {
             [FileState.ValidFile] = VALID_FILE,
@@ -155,6 +172,7 @@ namespace AutoTorrentInspection.Objects
             row.Cells.Add(new DataGridViewTextBoxCell { Value = RelativePath });
             row.Cells.Add(new DataGridViewTextBoxCell { Value = FileName + Suffix });
             row.Cells.Add(new DataGridViewTextBoxCell { Value = FileSize.FileSizeToString(Length) });
+            row.Cells.Add(new DataGridViewTextBoxCell { Value = StateMessage[State] });
             row.DefaultCellStyle.BackColor = StateColor[State];
             return row;
         }
